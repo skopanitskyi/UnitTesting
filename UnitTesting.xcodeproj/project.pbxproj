@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		5BA98C542689E15A0011620F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C532689E15A0011620F /* AppDelegate.swift */; };
 		5BA98C562689E15A0011620F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C552689E15A0011620F /* SceneDelegate.swift */; };
-		5BA98C582689E15A0011620F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C572689E15A0011620F /* ViewController.swift */; };
-		5BA98C5B2689E15A0011620F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA98C592689E15A0011620F /* Main.storyboard */; };
+		5BA98C582689E15A0011620F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C572689E15A0011620F /* MainViewController.swift */; };
 		5BA98C5D2689E15F0011620F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA98C5C2689E15F0011620F /* Assets.xcassets */; };
 		5BA98C602689E15F0011620F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA98C5E2689E15F0011620F /* LaunchScreen.storyboard */; };
 		5BA98C6B2689E1600011620F /* UnitTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C6A2689E1600011620F /* UnitTestingTests.swift */; };
+		5BA98C82268A08750011620F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C81268A08750011620F /* NetworkService.swift */; };
+		5BA98C84268A0F820011620F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C83268A0F820011620F /* ImageService.swift */; };
+		5BA98C88268A1B800011620F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C87268A1B800011620F /* MainView.swift */; };
+		5BA98C8A268A1BB00011620F /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C89268A1BB00011620F /* MainViewPresenter.swift */; };
+		5BA98C8C268A1BD10011620F /* MainViewControllerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C8B268A1BD10011620F /* MainViewControllerConfigurator.swift */; };
+		5BA98C8E268A24560011620F /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C8D268A24560011620F /* Album.swift */; };
+		5BA98C91268A5A5E0011620F /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C90268A5A5E0011620F /* AlbumCell.swift */; };
+		5BA98C93268A5C240011620F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98C92268A5C240011620F /* UITableViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,14 +44,21 @@
 		5BA98C502689E15A0011620F /* UnitTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA98C532689E15A0011620F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA98C552689E15A0011620F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5BA98C572689E15A0011620F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5BA98C5A2689E15A0011620F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BA98C572689E15A0011620F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5BA98C5C2689E15F0011620F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA98C5F2689E15F0011620F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BA98C612689E15F0011620F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BA98C662689E1600011620F /* UnitTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA98C6A2689E1600011620F /* UnitTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestingTests.swift; sourceTree = "<group>"; };
 		5BA98C702689E1600011620F /* UnitTestingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA98C81268A08750011620F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5BA98C83268A0F820011620F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		5BA98C87268A1B800011620F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5BA98C89268A1BB00011620F /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		5BA98C8B268A1BD10011620F /* MainViewControllerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerConfigurator.swift; sourceTree = "<group>"; };
+		5BA98C8D268A24560011620F /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		5BA98C90268A5A5E0011620F /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		5BA98C92268A5C240011620F /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +110,11 @@
 			children = (
 				5BA98C532689E15A0011620F /* AppDelegate.swift */,
 				5BA98C552689E15A0011620F /* SceneDelegate.swift */,
-				5BA98C572689E15A0011620F /* ViewController.swift */,
-				5BA98C592689E15A0011620F /* Main.storyboard */,
+				5BA98C90268A5A5E0011620F /* AlbumCell.swift */,
+				5BA98C92268A5C240011620F /* UITableViewCell+Extension.swift */,
+				5BA98C8F268A261B0011620F /* Models */,
+				5BA98C86268A1B310011620F /* MainViewController */,
+				5BA98C85268A1B280011620F /* Services */,
 				5BA98C5C2689E15F0011620F /* Assets.xcassets */,
 				5BA98C5E2689E15F0011620F /* LaunchScreen.storyboard */,
 				5BA98C612689E15F0011620F /* Info.plist */,
@@ -111,6 +128,34 @@
 				5BA98C6A2689E1600011620F /* UnitTestingTests.swift */,
 			);
 			path = UnitTestingTests;
+			sourceTree = "<group>";
+		};
+		5BA98C85268A1B280011620F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BA98C81268A08750011620F /* NetworkService.swift */,
+				5BA98C83268A0F820011620F /* ImageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5BA98C86268A1B310011620F /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5BA98C572689E15A0011620F /* MainViewController.swift */,
+				5BA98C89268A1BB00011620F /* MainViewPresenter.swift */,
+				5BA98C87268A1B800011620F /* MainView.swift */,
+				5BA98C8B268A1BD10011620F /* MainViewControllerConfigurator.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		5BA98C8F268A261B0011620F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BA98C8D268A24560011620F /* Album.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +264,6 @@
 			files = (
 				5BA98C602689E15F0011620F /* LaunchScreen.storyboard in Resources */,
 				5BA98C5D2689E15F0011620F /* Assets.xcassets in Resources */,
-				5BA98C5B2689E15A0011620F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +288,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BA98C582689E15A0011620F /* ViewController.swift in Sources */,
+				5BA98C82268A08750011620F /* NetworkService.swift in Sources */,
+				5BA98C88268A1B800011620F /* MainView.swift in Sources */,
+				5BA98C8A268A1BB00011620F /* MainViewPresenter.swift in Sources */,
+				5BA98C582689E15A0011620F /* MainViewController.swift in Sources */,
 				5BA98C542689E15A0011620F /* AppDelegate.swift in Sources */,
+				5BA98C8E268A24560011620F /* Album.swift in Sources */,
+				5BA98C93268A5C240011620F /* UITableViewCell+Extension.swift in Sources */,
+				5BA98C84268A0F820011620F /* ImageService.swift in Sources */,
+				5BA98C91268A5A5E0011620F /* AlbumCell.swift in Sources */,
+				5BA98C8C268A1BD10011620F /* MainViewControllerConfigurator.swift in Sources */,
 				5BA98C562689E15A0011620F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,14 +333,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5BA98C592689E15A0011620F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BA98C5A2689E15A0011620F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5BA98C5E2689E15F0011620F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -426,9 +470,11 @@
 				DEVELOPMENT_TEAM = 2LK8N5HS5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnitTesting/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = UnitTesting;
+				INFOPLIST_KEY_CFBundleName = UnitTesting;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,9 +500,11 @@
 				DEVELOPMENT_TEAM = 2LK8N5HS5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnitTesting/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = UnitTesting;
+				INFOPLIST_KEY_CFBundleName = UnitTesting;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
