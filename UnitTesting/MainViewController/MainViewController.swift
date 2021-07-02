@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainViewControllerInput: AnyObject {
-    
+    func reloadTableView()
 }
 
 class MainViewController: UIViewController {
@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
-        selfView.tableView.reloadData()
+        presenter?.loadAlmums()
     }
     
     private func setupController() {
@@ -58,8 +58,24 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDataSourcePrefetching
+
+extension MainViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        presenter?.prefetchRows(at: indexPaths)
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        presenter?.cancelPrefetchingForRows(at: indexPaths)
+    }
+}
+
 // MARK: - MainViewControllerInput
 
 extension MainViewController: MainViewControllerInput {
     
+    func reloadTableView() {
+        selfView.tableView.reloadData()
+    }
 }

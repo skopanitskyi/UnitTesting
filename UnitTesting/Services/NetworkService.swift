@@ -14,11 +14,11 @@ protocol DataDownloader {
 
 class NetworkService {
     
-    public static let shared: DataDownloader = NetworkService()
+//    public static let shared: DataDownloader = NetworkService()
     
     private var dataTask: URLSessionDataTask?
     
-    private init() { }
+//    private init() { }
 }
 
 extension NetworkService: DataDownloader {
