@@ -7,10 +7,8 @@
 
 import UIKit
 
-struct Album {
+struct Album: Codable {
+    public let userId: Int
     public let id: Int
     public let title: String
-    public let url: String
-    public let thumbnailUrl: String
-    public var image: UIImage?
 }

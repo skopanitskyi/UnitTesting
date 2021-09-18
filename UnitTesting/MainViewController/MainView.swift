@@ -7,10 +7,11 @@
 
 import UIKit
 
-class MainView: UIView {
+final class MainView: UIView {
     
     public let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView

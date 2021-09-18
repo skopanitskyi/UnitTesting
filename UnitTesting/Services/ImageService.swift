@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ImageService {
+final class ImageService {
     
     public static let shared = ImageService()
     
@@ -41,7 +41,7 @@ class ImageService {
 struct ImageLoader {
     
     private let stringURL: String
-    private let networkService = NetworkService()
+    private let networkService = NetworkService.shared
     
     init(stringURL: String) {
         self.stringURL = stringURL
@@ -53,7 +53,7 @@ struct ImageLoader {
             return
         }
         
-        networkService.downloadData(for: URLRequest(url: url)) { result in
+        networkService.downloadData(for: url) { result in
             switch result {
             case .success(let data):
                 guard let image = UIImage(data: data) else {

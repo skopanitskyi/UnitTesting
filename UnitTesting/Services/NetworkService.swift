@@ -8,26 +8,26 @@
 import Foundation
 
 protocol DataDownloader {
-    func downloadData(for request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void)
+    func downloadData(for url: URL, completion: @escaping (Result<Data, Error>) -> Void)
     func cancelDownloading()
 }
 
-class NetworkService {
+final class NetworkService {
     
-//    public static let shared: DataDownloader = NetworkService()
+    public static let shared: DataDownloader = NetworkService()
     
     private var dataTask: URLSessionDataTask?
     
-//    private init() { }
+    private init() { }
 }
 
 extension NetworkService: DataDownloader {
     
-    public func downloadData(for request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
-        if let cachedResponse = getCachedResponse(for: request) {
+    public func downloadData(for url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+        if let cachedResponse = getCachedResponse(for: url) {
             completion(.success(cachedResponse.data))
         } else {
-            download(for: request, completion: completion)
+            download(for: url, completion: completion)
         }
     }
     
@@ -35,11 +35,14 @@ extension NetworkService: DataDownloader {
         dataTask?.cancel()
     }
     
-    private func getCachedResponse(for request: URLRequest) -> CachedURLResponse? {
+    private func getCachedResponse(for url: URL) -> CachedURLResponse? {
+        let request = URLRequest(url: url)
         return URLCache.shared.cachedResponse(for: request)
     }
     
-    private func download(for request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
+    private func download(for url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+        let request = URLRequest(url: url)
+        
         dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 completion(.failure(error ?? NetworkService.NetworkError.downloadError))

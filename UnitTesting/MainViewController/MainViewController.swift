@@ -9,11 +9,12 @@ import UIKit
 
 protocol MainViewControllerInput: AnyObject {
     func reloadTableView()
+    func handleError(_ error: Error)
 }
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
-    public weak var presenter: MainViewPresenterInput?
+    public var presenter: MainViewPresenterInput?
     
     private let selfView = MainView()
     
@@ -24,10 +25,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
-        presenter?.loadAlmums()
+        presenter?.loadAlbums()
     }
     
     private func setupController() {
+        title = "Albums"
         setupSelfView()
     }
     
@@ -42,6 +44,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.didSelectAlbum(with: indexPath.row)
     }
 }
 
@@ -53,27 +56,24 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.identifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: AlbumCell.identifier,
+            for: indexPath) as? AlbumCell else { return UITableViewCell() }
+        cell.setTitle(presenter?.getAlbumTitle(for: indexPath.row) ?? "")
         return cell
-    }
-}
-
-// MARK: - UITableViewDataSourcePrefetching
-
-extension MainViewController: UITableViewDataSourcePrefetching {
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        presenter?.prefetchRows(at: indexPaths)
-    }
-    
-    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        presenter?.cancelPrefetchingForRows(at: indexPaths)
     }
 }
 
 // MARK: - MainViewControllerInput
 
 extension MainViewController: MainViewControllerInput {
+    
+    func handleError(_ error: Error) {
+        let alertVC = UIAlertController(title: "Error",
+                                        message: error.localizedDescription,
+                                        preferredStyle: .alert)
+        present(alertVC, animated: true, completion: nil)
+    }
     
     func reloadTableView() {
         selfView.tableView.reloadData()
