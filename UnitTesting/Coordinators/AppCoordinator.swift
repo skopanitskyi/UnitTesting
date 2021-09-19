@@ -36,11 +36,6 @@ extension AppCoordinator: MainViewPresenterOutput {
         let albumViewController = AlbumViewController()
         let albumViewPresenter = AlbumViewPresenter(controller: albumViewController, album: album)
         albumViewController.presenter = albumViewPresenter
-        albumViewPresenter.output = self
         navigationController?.pushViewController(albumViewController, animated: true)
     }
-}
-
-extension AppCoordinator: AlbumViewPresenterOutput {
-    
 }

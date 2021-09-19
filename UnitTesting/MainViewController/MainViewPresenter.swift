@@ -12,6 +12,7 @@ protocol MainViewPresenterInput: AnyObject {
     func getAlbumTitle(for index: Int) -> String
     func didSelectAlbum(with index: Int)
     var numberOfRowsInSection: Int { get }
+    init(controller: MainViewControllerInput)
 }
 
 protocol MainViewPresenterOutput: AnyObject {
@@ -23,9 +24,7 @@ final class MainViewPresenter {
     public weak var output: MainViewPresenterOutput?
     
     private var albums: [Album] = []
-    private weak var controller: MainViewControllerInput?
-    private let imageService = ImageService.shared
-    
+    private weak var controller: MainViewControllerInput?    
     
     init(controller: MainViewControllerInput) {
         self.controller = controller
